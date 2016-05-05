@@ -27,7 +27,7 @@ boot(app, __dirname, function(err) {
 });
 
 
-
+//code to create another server listening at 3001 to make a rest call.
 var expApp = require('express')();
 var bodyParser = require('body-parser');
 var multer = require('multer'); // v1.0.5
@@ -48,10 +48,7 @@ expApp.post('/profile', upload.array(), function(req, res, next) {
   console.log(req.body);
   res.json(req.body);
 });
-expApp.put('/profile', upload.array(), function(req, res, next) {
-  console.log(req.body);
-  res.json(req.body);
-});
+
 
 expApp.listen(3001, function() {
   console.log('Ready at 3001');

@@ -27,7 +27,9 @@ boot(app, __dirname, function(err) {
 });
 
 
-//code to create another server listening at 3001 to make a rest call.
+//code to create another server listening at 3001 to make a rest call.en
+//writing this just to replicate the scenario and avoiding two loopback apps to replicate the rest call scenario
+
 var expApp = require('express')();
 var bodyParser = require('body-parser');
 var multer = require('multer'); // v1.0.5

@@ -1,6 +1,24 @@
 {
-  "db": {
-    "name": "db",
-    "connector": "memory"
-  }
+	"db": {
+		"name": "db",
+		"connector": "memory"
+	},
+	"restConn": {
+		"name": "restConn",
+		"connector": "rest",
+		"debug": "false",
+		"operations": [{
+			"template": {
+				"method": "Post",
+				"url": "http://localhost:3001/profile",
+				"headers": {
+					"accepts": "application/json",
+					"content-type": "application/json"
+				}
+			},
+			"functions": {
+				"callRest": []
+			}
+		}]
+	}
 }

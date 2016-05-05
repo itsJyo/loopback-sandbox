@@ -1,11 +1,16 @@
 var loopback = require('loopback');
 
 module.exports = function(Customer) {
-	Customer.check = function(data, cb) {
+	Customer.getRemoteCustomer = function(data, cb) {
+		//get the loopback current context
 		var ctx = loopback.getCurrentContext();
+		//setting some dummy value
 		ctx.set('tenantid', 'ev');
+
+		//logging the current context before rest call
 		console.log('current Context Before Rest :', ctx);
 		Customer.callRest(function(err, response) {
+			//logging the current context after rest call where the active object is becoming null.
 			console.log('current Context After Rest :', ctx);
 			console.log("response is :", response);
 			cb(null, response);
@@ -14,7 +19,7 @@ module.exports = function(Customer) {
 
 	//define the remote method
 	Customer.remoteMethod(
-		'check', {
+		'getRemoteCustomer', {
 			accepts: {
 				arg: 'data',
 				type: 'object',
@@ -28,7 +33,7 @@ module.exports = function(Customer) {
 				description: 'return value'
 			},
 			http: {
-				path: '/check',
+				path: '/getRemoteCustomer',
 				verb: 'post'
 
 			}

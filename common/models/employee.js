@@ -8,6 +8,7 @@ var loopback = require('loopback');
 		ctx.set('tenantid', 'ev');
 		//logging the current context before rest call
 		console.log('current Context Before Create :', ctx);
+		var data={"empName": "John","designation": "developer"}
 		Employee.create(data,function(err,repsonse){
 		console.log('current Context after create :', ctx);
 		if(err){

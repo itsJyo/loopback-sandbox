@@ -12,7 +12,6 @@ module.exports = function(Customer) {
 		Customer.callRest(function(err, response) {
 			//logging the current context after rest call where the active object is becoming null.
 			console.log('current Context After Rest :', ctx);
-			console.log("response is :", response);
 			cb(null, response);
 		});
 	}

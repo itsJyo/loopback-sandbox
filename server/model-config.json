@@ -35,5 +35,9 @@
   "Customer": {
     "dataSource": "restConn",
     "public": true
+  },
+  "Employee": {
+    "dataSource": "db",
+    "public": true
   }
 }
